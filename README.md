@@ -3,3 +3,5 @@ uikiller，它是CocosCreator下的UI编程库，用是使用**名命规则**来
 https://github.com/ShawnZhang2015/UILoader。
 
 我为uikiller写了一篇使用教程，请从下在连接获取，如果对你有所帮助，我会感到很开心！
+
+[奎特尔星球—雷神之锤(uikiller)](http://www.jianshu.com/p/174cc2160a7d)
