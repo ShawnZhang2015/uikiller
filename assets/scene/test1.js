@@ -13,7 +13,6 @@ cc.Class({
         cc.log(this._image.name);
         cc.log(this._label.name);
         cc.log(this._button.name);
-
         //在节点上使用“$组件名”访问组件
         cc.log(this._label.$Label.string);
     },
