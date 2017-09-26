@@ -1249,7 +1249,7 @@ cc.Class({
                 this.setContent();
             },
         },
-
+        //-----屏蔽cc.Graphics的属性------
         lineWidth: {
             visible: false,
             type: cc.Integer,
@@ -1304,27 +1304,34 @@ cc.Class({
 
         fillColor: {
             override: true,
-            serializable: true,
-            set(value) {
-                this._sgNode.fillColor = this._fillColor = value;
-                this.setContent();
+            visible: false,
+            set() {
             },
 
             get() {
                 return this._fillColor;
             },
         }
+        //-----------
     },
 
     onLoad() {
         this.setContent();
+        if (CC_EDITOR) {
+            let setNodeColor = this.node._sizeProvider.setColor;
+            this.node._sizeProvider.setColor = (color) => {
+                setNodeColor.call(this.node._sizeProvider, color);
+                this.setContent();    
+            }
+        }
+        
     },
 
     setContent() {
         let qrcode = new QRCode(-1, 2);
         qrcode.addData(this.string);
         qrcode.make();
-
+        this._sgNode.fillColor = this.node.color;
         let size = this.node.width;
         let num = qrcode.getModuleCount();
         this.clear();
