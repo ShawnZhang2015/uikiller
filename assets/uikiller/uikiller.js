@@ -259,7 +259,13 @@ const UIKiller = {
                 let eventResult;
                 if (eventFunc) {
                     eventResult = eventFunc.call(target, eventNode, event);
-                    event.stopPropagation();
+                    //如果是触摸开始事件，返回fasle，使用节点可穿透
+                    if (event.type === cc.Node.EventType.TOUCH_START && eventResult === false) {
+                        eventNode._touchListener.setSwallowTouches(false);
+                    } else {
+                        node._touchListener.setSwallowTouches(true);
+                        event.stopPropagation();
+                    }
                 }
 
                 //检查button组件是否有事件处理函数，有则执行插件事件处理
