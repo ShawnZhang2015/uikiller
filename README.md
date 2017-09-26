@@ -14,5 +14,6 @@ https://github.com/ShawnZhang2015/UILoader。
 1. 节点TOUCH_START事件返回false，可以穿透触摸，透过当前子节点
 2. 增加QRCode组件
 
-##扫描下面二维码关注**奎特尔星球**微信公众号，获取最新动态！
-![奎特尔星球](https://github.com/ShawnZhang2015/uikiller/blob/master/WeChat-Official-Accounts.jpg)
+## 关注**奎特尔星球**微信公众号，获取最新动态！
+
+![奎特尔星球](https://github.com/ShawnZhang2015/uikiller/raw/master/WeChat-Official-Accounts.jpg)
