@@ -204,8 +204,8 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 19,
-      "g": 156,
+      "r": 0,
+      "g": 0,
       "b": 0,
       "a": 255
     },
@@ -217,8 +217,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 518,
-      "height": 518
+      "width": 300,
+      "height": 300
     },
     "_rotationX": 0,
     "_rotationY": 0,

@@ -1337,12 +1337,12 @@ cc.Class({
         this.clear();
         let tileW = size / num;
         let tileH = size / num;
-        let w = Math.round(tileW);
-        let h = Math.round(tileH);
+        let w = Math.ceil(tileW);
+        let h = Math.ceil(tileH);
         for (let row = 0; row < num; row++) {
             for (let col = 0; col < num; col++) {
                 if (qrcode.isDark(row, col)) {
-                    this.rect(col * tileW, size - tileH - row * tileH, w, h);
+                    this.rect(col * tileW, size - tileH - Math.round(row * tileH), w, h);
                     this.fill();
                 }
             }
