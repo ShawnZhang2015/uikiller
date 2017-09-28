@@ -1236,10 +1236,9 @@ QRBitBuffer.prototype = {
     }
 };
 
-cc.Class({
+let QRCodeComponent = cc.Class({
     extends: cc.Graphics,
     properties: {
-
         string: {
             default: '',
             notify(oldValue) {
@@ -1248,71 +1247,7 @@ cc.Class({
                 }
                 this.setContent();
             },
-        },
-        //-----屏蔽cc.Graphics的属性------
-        lineWidth: {
-            visible: false,
-            type: cc.Integer,
-            get() {
-                return 1;
-            },
-            set() {
-
-            },
-            override: true,
-        },
-
-        lineJoin: {
-            visible: false,
-            get() {
-                return 0;
-            },
-            set() {
-            },
-            override: true,
-        },
-
-        lineCap: {
-            visible: false,
-            get() {
-                return 0;
-            },
-            set() {
-            },
-            override: true,
-        },
-
-        strokeColor: {
-            visible: false,
-            get() {
-                return cc.Color.WRITE;
-            },
-            set() {
-            },
-            override: true,
-        },
-
-        miterLimit: {
-            visible: false,
-            get() {
-                return 0;
-            },
-            set() {
-            },
-            override: true,
-        },
-
-        fillColor: {
-            override: true,
-            visible: false,
-            set() {
-            },
-
-            get() {
-                return this._fillColor;
-            },
         }
-        //-----------
     },
 
     onLoad() {
@@ -1324,7 +1259,6 @@ cc.Class({
                 this.setContent();    
             }
         }
-        
     },
 
     setContent() {
@@ -1349,3 +1283,10 @@ cc.Class({
         }
     }
 });
+
+cc.Class.Attr.setClassAttr(QRCodeComponent, 'lineWidth', 'visible', false);
+cc.Class.Attr.setClassAttr(QRCodeComponent, 'lineJoin', 'visible', false);
+cc.Class.Attr.setClassAttr(QRCodeComponent, 'lineCap', 'visible', false);
+cc.Class.Attr.setClassAttr(QRCodeComponent, 'strokeColor', 'visible', false);
+cc.Class.Attr.setClassAttr(QRCodeComponent, 'miterLimit', 'visible', false);
+cc.Class.Attr.setClassAttr(QRCodeComponent, 'fillColor', 'visible', false);
