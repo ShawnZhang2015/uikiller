@@ -31,6 +31,16 @@ cc.Class({
         }, 3);
     },
 
+    _onButtonTipsTouchLong() {
+        this._tipLabel.active = true;
+        //注意返回true后，可继续触发_onButtonTipsTouchEnd
+        return true;
+    },
+
+    _onButtonTipsTouchEnd() {
+        this._tipLabel.active = false;    
+    },
+
     _onImageTouchMove(sender, event) {
         cc.assert(sender === this._image);
         this._image.position = sender.parent.convertToNodeSpaceAR(event.getLocation());

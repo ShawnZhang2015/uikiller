@@ -302,8 +302,8 @@ const UIKiller = {
 
         node.on(cc.Node.EventType.TOUCH_START, (event) => {
             node._touchLongTimer = setTimeout(() => {
-                node.interactable = false;
-                touchLong.call(target, node, event);
+                //准备触发touchLong事件
+                node.interactable = !!touchLong.call(target, node, event);
                 node._touchLongTimer = 0;
             }, node.touchLongTime || 1000);
         });
