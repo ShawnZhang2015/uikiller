@@ -1,69 +1,140 @@
-let uikiller = require('uikiller');
+var DefaultHandleEnum = cc.Enum({ '<None>': 0 });
 
-let EventJointItem = cc.Class({
-    name: 'EventJointItem',
-
-    properties: {
-        sender: cc.Node,
-        senderEventType: '',
-        key: '',
-        recverHandle: '',
-    }
-});
-
+function setEnumAttr (obj, propName, enumDef) {
+    cc.Class.attr(obj, propName, {
+        type: 'Enum',
+        enumList: cc.Enum.getList(enumDef)
+    });
+}
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        events: [EventJointItem],
+        //事件发送者
+        sender: {
+            type: cc.Node,
+            default: null,
+            notify() {
+                this._refresh();
+            },
+        },
+        //事件类型
+        senderEventType: '',
+
+        //要读取的属性
+        senderKey: '',
+
+        //处理函数或属性
+        handle: {
+            default: '',
+            visible: false,
+        },
+
+
+        _handleIndex: {
+            type: DefaultHandleEnum,
+            visible: true,
+            displayName: 'handle',
+            get() {
+                //let animationName = (!CC_EDITOR || cc.engine.isPlaying) ? this.handle : '';
+                let hanleEnum = this._getHanleEnum() || DefaultHandleEnum;
+                return hanleEnum[this.handle] || 0;
+            },
+            set(value) {
+                let hanleEnum = this._getHanleEnum();
+                this.handle = hanleEnum[value];
+            },
+        },
+
+        _handleEnum: null,
+        _handleEnumImpl: null,
+    },
+
+    _getHanleEnum() {
+        if (!this.sender) {
+            return;
+        }
+        if (this._handleEnum) {
+            return this._handleEnum;
+        }
+        this._handleEnumImpl = {};
+
+        let obj = {};
+        let index = 0;
+        let array = [].concat(this.node, this.node._components);
+        array.forEach((object) => {
+            if (object === this || !object.name) {
+                return;
+            }
+
+            let name = object instanceof cc.Node ? 'node' : object.name.match(/<.*>$/)[0].slice(1, -1);
+            let props = object.constructor.__props__;
+            let attrs = cc.Class.Attr.getClassAttrs(object.constructor);
+            
+            for (let p = 0; p < props.length; p++) {
+                let propName = props[p];
+                let visible = attrs[propName + cc.Class.Attr.DELIMETER + 'visible'];
+                console.log(`${propName}${cc.Class.Attr.DELIMETER}${visible}`)
+                if (visible !== false) {
+                    //屏蔽name
+                    if (propName === 'name') {
+                        continue;
+                    }
+                    obj[`${name}.${propName}`] = -1;    
+                    this._handleEnumImpl[index] = {
+                        target: object,
+                        key: propName,    
+                    };
+                    index++;
+                }
+            }
+        });
+       
+        if (index) {
+            return this._handleEnum = cc.Enum(obj);
+        }
+    },
+
+    //刷新 
+    _refresh() {
+        if (!this.sender) {
+            this._handleEnum = null;
+        }
+
+        let handleEnum = this._getHanleEnum();
+        setEnumAttr(this, '_handleIndex', handleEnum || DefaultHandleEnum);
+        Editor.Utils.refreshSelectedInspector('node', this.node.uuid);
     },
 
     // use this for initialization
     onEnable: function () {
-    
-        if (this._init) {
+        if (this._init || !this.sender) {
             return;
         }
 
-        uikiller.bindComponent(this, { touchEvent: false });
-
         this._init = true;
-        this.events.forEach((element) => {
-            element.sender.on(element.senderEventType, (event) => {
-                //取值
-                let value;
-                let key = element.key || element.recverHandle;
-                if (event.detail) {
-                    value = _.get(event.detail, key);
-                } else {
-                    value = _.get(event.target, key);
-                }
-                
-
-                //检查组件\节点上是否存在handle
-                let node = null;
-                let handle = _.get(this, element.recverHandle);
-                if (handle === undefined) {
-                    node = this.node;
-                    handle = node[element.recverHandle];
-                    if (handle === undefined) {
-                        return;        
-                    }
-                }
-
-                if (typeof handle === 'function') {
-                    handle.call(node || this, value);
-                } else {
-                    _.set(node || this, element.recverHandle, value);
-                }
-            });
-
-        });
+       
+        this.sender.on(this.senderEventType, this.jointEvent, this);
+     
     },
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
+    jointEvent(event) {
+        let value;
+        let handleObject = this._handleEnumImpl[this._handleIndex];
+        let key = this.senderKey || handleObject.key;
+        if (event.detail) {
+            value = _.get(event.detail, key);
+        } else {
+            value = _.get(event.target, key);
+        }
 
-    // },
+        //检查组件\节点上是否存在handle
+        try{
+            _.set(handleObject.target, handleObject.key, value);    
+        } catch(e) {
+        
+        }
+        
+    }
 });
