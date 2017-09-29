@@ -98,12 +98,3 @@ cc.createNodeComponent = function (componentType) {
     let component = node.addComponent(componentType);
     return component;
 };
-
-cc.Component.prototype.emit = function(node, eventType) {
-    if (!node || !eventType) {
-        return;
-    }
-
-    node.emit(eventType);
-};
-cc.eventCenter = cc.NotificationCenter = new cc.EventTarget();
