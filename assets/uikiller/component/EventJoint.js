@@ -7,7 +7,7 @@ function setEnumAttr (obj, propName, enumDef) {
     });
 }
 
-cc.Class({
+let EventJoint = cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -46,6 +46,17 @@ cc.Class({
                 this.handle = hanleEnum[value];
             },
         },
+
+        custom: {
+            type: cc.Boolean,
+            default: false,
+            notify() {
+                cc.Class.Attr.setClassAttr(this, '_handleIndex', 'visible', !this.custom);
+                cc.Class.Attr.setClassAttr(this, 'handle', 'visible', this.custom);
+            }
+        },
+
+    
 
         _handleEnum: null,
         _handleEnumImpl: null,
@@ -121,19 +132,39 @@ cc.Class({
 
     jointEvent(event) {
         let value;
-        let handleObject = this._handleEnumImpl[this._handleIndex];
-        let key = this.senderKey || handleObject.key;
-        if (event.detail) {
-            value = _.get(event.detail, key);
-        } else {
-            value = _.get(event.target, key);
-        }
+        let key;
+        if (!this.custom) {
+            let handleObject = this._handleEnumImpl[this._handleIndex];
+            key = this.senderKey || handleObject.key;
+            if (event.detail) {
+                value = _.get(event.detail, key);
+            } else {
+                value = _.get(event.target, key);
+            }
 
-        //检查组件\节点上是否存在handle
-        try{
-            _.set(handleObject.target, handleObject.key, value);    
-        } catch(e) {
-        
+            //检查组件\节点上是否存在handle
+            try{
+                cc.log(handleObject.key, value);
+                _.set(handleObject.target, handleObject.key, value);    
+            } catch(e) {
+            
+            }
+        } else {
+            let handleObject = this._handleEnumImpl[this._handleIndex];
+            key = this.senderKey || handleObject.key;
+            if (event.detail) {
+                value = _.get(event.detail, key);
+            } else {
+                value = _.get(event.target, key);
+            }
+
+            //检查组件\节点上是否存在handle
+            try{
+                cc.log(handleObject.key, value);
+                _.set(handleObject.target, handleObject.key, value);    
+            } catch(e) {
+            
+            }    
         }
         
     }

@@ -98,3 +98,10 @@ cc.createNodeComponent = function (componentType) {
     let component = node.addComponent(componentType);
     return component;
 };
+
+cc.setEnumAttr = function(obj, propName, enumDef) {
+    cc.Class.attr(obj, propName, {
+        type: 'Enum',
+        enumList: cc.Enum.getList(enumDef)
+    });
+}
