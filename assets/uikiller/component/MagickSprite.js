@@ -87,16 +87,12 @@ let MagickSprite = cc.Class({
         Editor.Utils.refreshSelectedInspector('node', this.uuid);
     },
 
+    __preload: CC_EDITOR && function() {
+        this._super();
+        this._refresh();
+    },
    
 });
 
-// if (CC_EDITOR) {
-//     // override __preload
-//     MagickSprite.prototype.__superPreload = cc.Sprite.prototype.__preload;
-//     MagickSprite.prototype.__preload = function () {
-//         this.__superPreload();
-//         this._refresh();
-//     };
-
-//     cc.Class.Attr.setClassAttr(MagickSprite, 'spriteFrame', 'visible', false);
-// }
+//cc.Class.Attr.setClassAttr(MagickSprite, 'spriteFrame', 'visible', false);
+//cc.Class.Attr.setClassAttr(MagickSprite, '_atlas', 'visible', false);

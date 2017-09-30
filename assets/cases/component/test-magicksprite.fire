@@ -119,7 +119,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "cd629RV9nRIW6NAnGdggR49",
+    "_id": "aafb8fVyqVHnZCP2qIEpMqv",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -145,8 +145,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": -32,
+      "y": 104
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -166,7 +166,7 @@
     "_spriteFrame": {
       "__uuid__": "dcd84275-c533-42d1-a18c-971fd54e926f"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
@@ -201,8 +201,7 @@
     "_nameEnum": {
       "sheep_run_0": 0,
       "sheep_run_1": 1,
-      "sheep_run_2": 2,
-      "sheep_run_3": 3
+      "sheep_run_3": 2
     }
   },
   {
