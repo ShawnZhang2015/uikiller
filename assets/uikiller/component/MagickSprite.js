@@ -16,7 +16,7 @@ let MagickSprite = cc.Class({
                 }, this);
                 this.spriteFrame = this._spriteFrames[this.index];
                 this._nameEnum = null;
-                this._refresh();
+                CC_EDITOR && this._refresh();
             },
 
             get() {
@@ -32,7 +32,7 @@ let MagickSprite = cc.Class({
                 if (value === this._index || value > this._spriteFrames.length) {
                     return;
                 }
-                this._refresh();
+            
                 this._index = value % this.spriteFrames.length;
                 this.spriteFrame = this._spriteFrames ? this._spriteFrames[this._index] : null;
                 if (this.spriteFrame) {
@@ -94,5 +94,24 @@ let MagickSprite = cc.Class({
    
 });
 
-//cc.Class.Attr.setClassAttr(MagickSprite, 'spriteFrame', 'visible', false);
-//cc.Class.Attr.setClassAttr(MagickSprite, '_atlas', 'visible', false);
+cc.Class.Attr.setClassAttr(MagickSprite, 'spriteFrame', 'visible', false);
+cc.Class.Attr.setClassAttr(MagickSprite, '_atlas', 'visible', false);
+cc.Class.Attr.setClassAttr(MagickSprite, 'fillCenter', 'visible', function() {
+    return this._type === cc.Sprite.Type.FILLED;
+});
+cc.Class.Attr.setClassAttr(MagickSprite, 'fillStart', 'visible', function() {
+    return this._type === cc.Sprite.Type.FILLED;
+});
+cc.Class.Attr.setClassAttr(MagickSprite, 'fillEnd', 'visible', function() {
+    return this._type === cc.Sprite.Type.FILLED;
+});
+cc.Class.Attr.setClassAttr(MagickSprite, 'fillRange', 'visible', function() {
+    return this._type === cc.Sprite.Type.FILLED;
+});
+
+cc.Class.Attr.setClassAttr(MagickSprite, 'srcBlendFactor', 'visible', function() {
+    return this._type === cc.Sprite.Type.FILLED;
+});
+cc.Class.Attr.setClassAttr(MagickSprite, 'dstBlendFactor', 'visible', function() {
+    return this._type === cc.Sprite.Type.FILLED;
+});
