@@ -1,5 +1,12 @@
 let DefaultNameEnum = cc.Enum({ '<None>': 0 });
 
+function setEnumAttr (obj, propName, enumDef) {
+    cc.Class.attr(obj, propName, {
+        type: 'Enum',
+        enumList: cc.Enum.getList(enumDef)
+    });
+}
+
 let MagickSprite = cc.Class({
     extends: cc.Sprite,
 
@@ -9,14 +16,7 @@ let MagickSprite = cc.Class({
             type: [cc.SpriteFrame],
             set(value) {
                 this._spriteFrames = value;
-                this._spriteFrames.forEach((spriteFrame) => {
-                    if (spriteFrame) {
-                        cc.log(spriteFrame._textureFilename);
-                    }
-                }, this);
-                this.spriteFrame = this._spriteFrames[this.index];
                 this._nameEnum = null;
-                CC_EDITOR && this._refresh();
             },
 
             get() {
@@ -38,6 +38,7 @@ let MagickSprite = cc.Class({
                 if (this.spriteFrame) {
                     this.spriteName = this.spriteFrame.name;
                 }
+                CC_EDITOR && this._refresh();
             },
 
             get() {
@@ -67,7 +68,7 @@ let MagickSprite = cc.Class({
     },
 
     getNameEnum() {
-        if (this._nameEnum && this._nameEnum.__enums__) {
+        if (this._nameEnum) {
             return this._nameEnum;
         }
 
@@ -83,7 +84,7 @@ let MagickSprite = cc.Class({
 
     _refresh() {
         let nameEnum = this.getNameEnum();
-        cc.setEnumAttr(this, '_nameIndex',  nameEnum || DefaultNameEnum);
+        setEnumAttr(this, '_nameIndex',  nameEnum || DefaultNameEnum);
         Editor.Utils.refreshSelectedInspector('node', this.uuid);
     },
 
@@ -91,6 +92,10 @@ let MagickSprite = cc.Class({
         this._super();
         this._refresh();
     },
+
+    next() {
+        this.index = this._index + 1;
+    }
    
 });
 
