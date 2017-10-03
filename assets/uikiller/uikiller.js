@@ -361,4 +361,4 @@ UIKiller.isFunction = function(value) {
     return typeof value === 'function';
 };
 
-module.exports = UIKiller;
+window.uikiller = module.exports = UIKiller;
