@@ -99,9 +99,6 @@ cc.createNodeComponent = function (componentType) {
     return component;
 };
 
-cc.setEnumAttr = function(obj, propName, enumDef) {
-    cc.Class.attr(obj, propName, {
-        type: 'Enum',
-        enumList: cc.Enum.getList(enumDef)
-    });
+cc.Component.prototype.setEnable = function() {
+    
 }

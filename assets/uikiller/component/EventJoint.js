@@ -62,7 +62,6 @@ let EventJoint = cc.Class({
         if (this._init || !this.sender || !this.senderEvent) {
             return;
         }
-
         //如果有uikiller，进行绑定
         if (uikiller) {
             uikiller.bindComponent(this);
@@ -74,12 +73,23 @@ let EventJoint = cc.Class({
 
     jointEvent(event) {
         let object = event.detail ? event.detail : event.target;
-        let key = this.senderPath || this.handlePath;
-        let value = _.get(object, key);
-        try{
-            _.set(this.node, this.handlePath, value);    
-        } catch(e) {
-            cc.log(e);
+        let value =  this.senderPath ? _.get(object, this.senderPath) : undefined;
+        let handle = _.get(this.node, this.handlePath);
+
+        //value是函数
+        if (_.isFunction(value)){
+            let strKeyThis = this.keyPath.substr(0, this.keyPath.lastIndexOf('.'));     
+            let keyThis = _.get(this.node, strKeyThis);
+            value = value.call(keyThis); 
+        }
+        
+        //取handle
+        if (_.isFunction(handle)) {
+            let strThis = this.handlePath.substr(0, this.handlePath.lastIndexOf('.'));     
+            let handleThis = _.get(this.node, strThis);
+            handle.call(handleThis, value);     
+        } else {
+            _.set(this.node, this.handlePath, value);
         }
     }
 });

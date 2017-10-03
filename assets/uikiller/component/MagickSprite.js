@@ -91,6 +91,10 @@ let MagickSprite = cc.Class({
         this._super();
         this._refresh();
     },
+
+    next() {
+        this.index = this._index + 1;
+    }
    
 });
 
