@@ -14,9 +14,4 @@ cc.Class({
     _onLabelTouchMove(sender, event) {
         this._label.position = this.node.convertToNodeSpaceAR(event.getLocation());   
     },
-
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
 });
