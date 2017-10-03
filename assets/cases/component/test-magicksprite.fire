@@ -142,8 +142,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 176,
-      "height": 115
+      "width": 178,
+      "height": 113
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -170,7 +170,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "98aacfa3-763b-47a1-a875-553d79b35fb8"
+      "__uuid__": "65d23191-424c-4e25-bb0b-b76307776718"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -202,8 +202,8 @@
         "__uuid__": "65d23191-424c-4e25-bb0b-b76307776718"
       }
     ],
-    "_index": 1,
-    "spriteName": "sheep_run_1",
+    "_index": 3,
+    "spriteName": "sheep_run_3",
     "_nameEnum": {
       "sheep_run_0": 0,
       "sheep_run_1": 1,
