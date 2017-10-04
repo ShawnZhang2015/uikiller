@@ -104,4 +104,4 @@ cc.setEnumAttr = function(obj, propName, enumDef) {
         type: 'Enum',
         enumList: cc.Enum.getList(enumDef)
     });
-}
+};
