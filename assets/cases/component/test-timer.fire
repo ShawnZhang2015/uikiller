@@ -15,16 +15,13 @@
     "_children": [
       {
         "__id__": 2
-      },
-      {
-        "__id__": 8
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_id": "45be240f-a49b-4b92-900d-231916d3be61",
+    "_id": "b17fa5f6-0c19-4bca-8b71-e77b9481e5e3",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -63,20 +60,26 @@
       },
       {
         "__id__": 5
+      },
+      {
+        "__id__": 8
+      },
+      {
+        "__id__": 11
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 11
+        "__id__": 14
       },
       {
-        "__id__": 12
+        "__id__": 15
       }
     ],
     "_prefab": null,
-    "_id": "0b455zlKdBIhq0948MltQQk",
+    "_id": "af5deLId1xAnoqwa1U4XhCL",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -128,7 +131,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "77536OGfXpGeq06qSmXKdXn",
+    "_id": "7c6a7dwKzJP/pWWp986oLlD",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -145,7 +148,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
+      "width": 120,
       "height": 40
     },
     "_rotationX": 0,
@@ -154,8 +157,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 9,
-      "y": 263
+      "x": 24,
+      "y": 258
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -180,7 +183,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "魔法精灵",
+    "_N$string": "定时器",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -188,7 +191,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "MagickSprite",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -205,7 +208,195 @@
       }
     ],
     "_prefab": null,
-    "_id": "0169btl741CnLupocQ1IrlY",
+    "_id": "e9059R8gjpK7r0IeEKC4nML",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 97.87,
+      "height": 40
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 18,
+      "y": 148
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_N$string": "Label",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
+  },
+  {
+    "__type__": "dba97otPXZNbJuLz0IYTUsU",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "sender": {
+      "__id__": 2
+    },
+    "senderEvent": "timer-event-1",
+    "senderPath": "times",
+    "handlePath": "$Label.string",
+    "advanced": false,
+    "expression": "this.$Label.string = 100 - event.detail.times"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "New Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 9
+      },
+      {
+        "__id__": 10
+      }
+    ],
+    "_prefab": null,
+    "_id": "743c01sLJdHpKY4GSwOqD4U",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 97.87,
+      "height": 40
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 20,
+      "y": 71
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 8
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_N$string": "Label",
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
+  },
+  {
+    "__type__": "dba97otPXZNbJuLz0IYTUsU",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 8
+    },
+    "_enabled": true,
+    "sender": {
+      "__id__": 2
+    },
+    "senderEvent": "timer-event-1",
+    "senderPath": "times",
+    "handlePath": "$Label.string",
+    "advanced": true,
+    "expression": "this.$Label.string = (new Date()).toLocaleTimeString();"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "MagickSprite",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 12
+      },
+      {
+        "__id__": 13
+      }
+    ],
+    "_prefab": null,
+    "_id": "679155kOZJC/KxuWgY6KjiX",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -231,8 +422,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": 15,
+      "y": -101
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -246,7 +437,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 5
+      "__id__": 11
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -296,89 +487,17 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 5
+      "__id__": 11
     },
     "_enabled": true,
     "sender": {
-      "__id__": 8
+      "__id__": 2
     },
-    "senderEvent": "timer-event-1",
+    "senderEvent": "timer-event-2",
     "senderPath": "",
     "handlePath": "",
     "advanced": true,
     "expression": "this.$MagickSprite.next()"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "timer",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 1
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 9
-      }
-    ],
-    "_prefab": null,
-    "_id": "95715wpW0dC7ZJpF2qlCz+Z",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "727e1Wxq7NOd56LAfgrvaDM",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 8
-    },
-    "_enabled": true,
-    "eventParams": [
-      {
-        "__id__": 10
-      }
-    ]
-  },
-  {
-    "__type__": "TimerEventParam",
-    "id": "1",
-    "interval": 0.08,
-    "_duration": 0
   },
   {
     "__type__": "cc.Canvas",
@@ -397,12 +516,34 @@
     "_fitHeight": true
   },
   {
-    "__type__": "bb12c0IUuNNCpDGkphClm0b",
+    "__type__": "727e1Wxq7NOd56LAfgrvaDM",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 2
     },
-    "_enabled": true
+    "_enabled": true,
+    "eventParams": [
+      {
+        "__id__": 16
+      },
+      {
+        "__id__": 17
+      }
+    ]
+  },
+  {
+    "__type__": "TimerEventParam",
+    "id": "1",
+    "times": 0,
+    "interval": 1,
+    "_duration": 0
+  },
+  {
+    "__type__": "TimerEventParam",
+    "id": "2",
+    "times": 0,
+    "interval": 0.2,
+    "_duration": 0
   }
 ]

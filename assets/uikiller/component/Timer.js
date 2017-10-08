@@ -6,6 +6,7 @@ let TimerEventParam = cc.Class({
     name: 'TimerEventParam',
     properties: {
         id: '',
+        times: 0,
         interval: {
             default: 0,  
             range: [0, 99999],  
@@ -28,6 +29,7 @@ let Timer = cc.Class({
     onEnable() {
         this.eventParams.forEach((eventParam) => {
             this.schedule(() => {
+                eventParam.times++;
                 this.node.emit(`${Timer.TIMER_EVENT}-${eventParam.id}`, eventParam);
             }, eventParam.interval);
         });

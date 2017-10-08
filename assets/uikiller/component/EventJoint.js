@@ -56,22 +56,12 @@ let EventJoint = cc.Class({
         senderPath: '',
         //handle
         handlePath: '',
-        advanced: {
-            default: false,
-            notify() {
-                this._refresh();
-            }
-        },
-        expression: '',
-    },
-
-    _refresh() {
-        if (CC_EDITOR) {
-            cc.Class.Attr.setClassAttr(this, 'senderPath', 'visible', !this.advanced);
-            cc.Class.Attr.setClassAttr(this, 'handlePath', 'visible', !this.advanced);
-            cc.Class.Attr.setClassAttr(this, 'expression', 'visible', this.advanced);
+        //高级模式
+        advanced: false,
+        expression: {
+            default: '',
+            multiline: true,
         }
-        
     },
 
     __preload: CC_EDITOR && function() {
@@ -86,7 +76,6 @@ let EventJoint = cc.Class({
         if (uikiller) {
             uikiller.bindComponent(this);
         }
-        
         this._init = true;
         this.sender.on(this.senderEvent, this.jointEvent, this);
     },
@@ -127,18 +116,13 @@ let EventJoint = cc.Class({
 
     expressionExec(event) {
         if (!this._exp) {
-            let exp = this.expression.match(/^{{+(.*)}}+$/)[1];
-            if (!exp) {
-                cc.error(`表达示错误${exp}`);
-                return;
-            }
-            this._exp = this.createFunc(exp);
+            this._exp = this.createFunc(this.expression);
         }
-
         this._exp(this.node, this.sender, event);
     },
 
     createFunc(exp) {
+        //注入两个变量：sender\event
         let func = new Function('sender', 'event', `return ${exp}`);
         return function (_this, sender, event) {
             try {
@@ -150,3 +134,17 @@ let EventJoint = cc.Class({
         };
     },
 });
+
+if (CC_EDITOR) {
+    cc.Class.Attr.setClassAttr(EventJoint, 'senderPath', 'visible', function() {
+        return !this.advanced;
+    });
+
+    cc.Class.Attr.setClassAttr(EventJoint, 'handlePath', 'visible', function() {
+        return !this.advanced;
+    });
+
+    cc.Class.Attr.setClassAttr(EventJoint, 'expression', 'visible', function() {
+        return this.advanced;
+    });
+}

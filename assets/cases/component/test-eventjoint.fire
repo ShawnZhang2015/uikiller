@@ -163,8 +163,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -341,
-      "y": 82
+      "x": -308,
+      "y": 201
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -206,10 +206,11 @@
     "sender": {
       "__id__": 6
     },
-    "isBind": true,
     "senderEvent": "text-changed",
     "senderPath": "string",
-    "handlePath": "$Label.string"
+    "handlePath": "$Label.string",
+    "advanced": false,
+    "expression": ""
   },
   {
     "__type__": "cc.Node",
@@ -351,7 +352,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 244,
-      "y": 177
+      "y": 200.5384615384615
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -393,10 +394,11 @@
     "sender": {
       "__id__": 3
     },
-    "isBind": true,
-    "senderEvent": "touchmove",
-    "senderPath": "position.y",
-    "handlePath": "y"
+    "senderEvent": "position-changed",
+    "senderPath": "y",
+    "handlePath": "y",
+    "advanced": false,
+    "expression": ""
   },
   {
     "__type__": "cc.Node",
@@ -437,8 +439,8 @@
       "width": 80,
       "height": 40
     },
-    "_rotationX": 0,
-    "_rotationY": 0,
+    "_rotationX": -308,
+    "_rotationY": -308,
     "_scaleX": 1,
     "_scaleY": 1,
     "_position": {
@@ -486,10 +488,11 @@
     "sender": {
       "__id__": 3
     },
-    "isBind": true,
-    "senderEvent": "touchmove",
+    "senderEvent": "position-changed",
     "senderPath": "x",
-    "handlePath": "rotation"
+    "handlePath": "rotation",
+    "advanced": false,
+    "expression": ""
   },
   {
     "__type__": "cc.Node",
@@ -527,7 +530,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 366.88,
+      "width": 26.64,
       "height": 40
     },
     "_rotationX": 0,
@@ -536,8 +539,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 242,
-      "y": 25
+      "x": 258,
+      "y": -10
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -562,7 +565,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "EditBox.string.length",
+    "_N$string": "--",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -577,12 +580,13 @@
     },
     "_enabled": true,
     "sender": {
-      "__id__": 6
+      "__id__": 3
     },
-    "isBind": true,
-    "senderEvent": "text-changed",
+    "senderEvent": "position-changed",
     "senderPath": "string.length",
-    "handlePath": "$Label.string"
+    "handlePath": "$Label.string",
+    "advanced": true,
+    "expression": "this.$Label.string = sender.position"
   },
   {
     "__type__": "cc.Canvas",
