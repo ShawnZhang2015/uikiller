@@ -170,7 +170,9 @@ const UIKiller = {
                     child.$eventName = name.substr(0, index);
                     child.$ = name.substr(index + 1);
                     name = child.$eventName + child.$[0].toUpperCase() + child.$.substr(1);
-                    child.name = name;
+                    if (!CC_EDITOR) {
+                        child.name = name;
+                    }
                 }
 
                 if (target[name]) {

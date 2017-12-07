@@ -12,6 +12,6 @@ cc.Class({
     },
 
     _onLabelTouchMove(sender, event) {
-        this._label.position = this.node.convertToNodeSpaceAR(event.getLocation());   
+        this._label.position = sender.parent.convertToNodeSpaceAR(event.getLocation());   
     },
 });

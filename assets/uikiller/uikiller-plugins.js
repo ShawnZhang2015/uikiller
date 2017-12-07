@@ -22,8 +22,10 @@ const UIKillerBindFilter = {
 
 
 const LANGUAGE_TABLE = {
-    hello: '你好',
-    world: '世界'
+    hello: '你好XXX',
+    world: '世界',
+    '1': 'hello',
+    '2': 'wrold',
 }
 const UIKillerLabelLanguage = {  
     name: 'UIKillerLabelLanguage',

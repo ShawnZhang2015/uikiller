@@ -1,5 +1,13 @@
 let DefaultNameEnum = cc.Enum({ '<None>': 0 });
 
+//模拟多语言key
+let config = {
+    'sheep0': '45f08588-b32b-4d25-811d-19984af2da21',
+    'sheep1': 'be53e572-17eb-4703-84e3-9048f248c4c4',
+    'sheep2': "8dfea58d-2cec-49f6-ab34-2057096563f1",
+}
+
+
 function setEnumAttr (obj, propName, enumDef) {
     cc.Class.attr(obj, propName, {
         type: 'Enum',
@@ -64,6 +72,21 @@ let MagickSprite = cc.Class({
             }
         },
 
+        language: {
+            default: '',
+            notify(oldValue) {
+                if (this.language === oldValue) {
+                    return;
+                }
+                let uuid = config[this.language];
+                if (!uuid) {
+                    cc.log('not find langage value');
+                    return;    
+                }
+                this._updateSpriteFrame(uuid);
+            },
+        },
+
         _nameEnum: null,
     },
 
@@ -80,6 +103,12 @@ let MagickSprite = cc.Class({
         
         });
         return this._nameEnum = cc.Enum(obj);
+    },
+
+    _updateSpriteFrame(uuid) {
+        cc.loader.load({ uuid }, (error, spriteFrame) => {
+            this.spriteFrame = spriteFrame;
+        })
     },
 
     _refresh() {
