@@ -135,11 +135,12 @@ const UIKiller = {
      */
     _bindNode(nodeObject, target) {
         const node = nodeObject;
-
+        let isBindNode = false;
         //绑定组件到自身node节点上
         if (node.name[0] === this._prefix) {
             node._components.forEach((component) => {
                 let name = this._getComponentName(component);
+                
                 name = `$${name}`;
                 if (this[name]) {
                     cc.warn(`${name} property is already exists`);
@@ -151,12 +152,17 @@ const UIKiller = {
                 if (UIKiller.isFunction(component.onBind)) {
                     component.onBind(target);
                 }
+                
+                //判定是否将要自行绑定的节点
+                if (!isBindNode && component instanceof Thor && component !== target) {
+                    isBindNode = true;
+                }
             });
         }
 
         //执行插件
         let bool = this._checkNodeByPlugins(node, target);
-        if (!bool) {
+        if (!bool || isBindNode) {
             return;
         }
         
@@ -245,7 +251,7 @@ const UIKiller = {
 
             node.on(eventTypes[index], (event) => {
                 //被禁用的node 节点不响应事件
-                let eventNode = event.target;
+                let eventNode = event.currentTarget;
                 if (eventNode.interactable === false || eventNode.active === false) {
                     return;
                 }
@@ -311,6 +317,9 @@ const UIKiller = {
         });
     },
 
+    isThorClass(node) {
+            
+    },
 
     /**
      * 拿所有插件去检查node 节点, onCheckNode返回为 false 的,此节点将不被绑定

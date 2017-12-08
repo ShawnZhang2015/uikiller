@@ -1,14 +1,14 @@
-let uikiller = require('uikiller');
+//let uikiller = require('uikiller');
+let Thor = require('Thor');
 
 cc.Class({
-    extends: cc.Component,
+    extends: Thor,
 
     properties: {
     },
 
     // use this for initialization
     onLoad() {
-        uikiller.bindComponent(this);
         //直接访问节点
         cc.log(this._image.name);
         cc.log(this._label.name);
