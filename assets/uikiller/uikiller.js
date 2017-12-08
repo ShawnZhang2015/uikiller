@@ -142,7 +142,7 @@ const UIKiller = {
                 let name = this._getComponentName(component);
                 
                 name = `$${name}`;
-                if (this[name]) {
+                if (node[name]) {
                     cc.warn(`${name} property is already exists`);
                     return;
                 }
@@ -153,9 +153,15 @@ const UIKiller = {
                     component.onBind(target);
                 }
                 
-                //判定是否将要自行绑定的节点
-                if (!isBindNode && component instanceof Thor && component !== target) {
-                    isBindNode = true;
+                if (component instanceof Thor) {
+                    //判定是否将要自行绑定的节点
+                    if (!isBindNode && component !== target) {
+                        isBindNode = true;
+                    }
+
+                    if (!node.active) {
+                        component.bindHammer();
+                    }
                 }
             });
         }
@@ -315,10 +321,6 @@ const UIKiller = {
                 node._touchLongTimer = 0;
             }, node.touchLongTime || 1000);
         });
-    },
-
-    isThorClass(node) {
-            
     },
 
     /**

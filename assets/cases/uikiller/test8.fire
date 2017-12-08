@@ -45,7 +45,7 @@
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
     "groupIndex": 0,
-    "autoReleaseAssets": false
+    "autoReleaseAssets": null
   },
   {
     "__type__": "cc.Node",
@@ -184,7 +184,7 @@
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 8
@@ -264,7 +264,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 62.25,
+      "width": 104.49,
       "height": 40
     },
     "_rotationX": 0,
@@ -299,7 +299,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "zxh",
+    "_N$string": "cocos",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -324,7 +324,8 @@
       "__id__": 4
     },
     "_enabled": true,
-    "_N$string": "zxh"
+    "_isBound": null,
+    "_N$string": "cocos"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -386,7 +387,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -6,
-      "y": 15
+      "y": 55
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -490,6 +491,7 @@
       "__id__": 10
     },
     "_enabled": true,
+    "_isBound": true,
     "_N$string": "654"
   },
   {
@@ -552,7 +554,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -6,
-      "y": -25
+      "y": 15
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -656,6 +658,7 @@
       "__id__": 16
     },
     "_enabled": true,
+    "_isBound": true,
     "_N$string": ""
   },
   {
@@ -749,6 +752,7 @@
     "node": {
       "__id__": 2
     },
-    "_enabled": true
+    "_enabled": true,
+    "_isBound": true
   }
 ]

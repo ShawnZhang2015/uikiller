@@ -1,5 +1,4 @@
 let uikiller = require('./uikiller');
-
 const UIKillerBindFilter = {
     name: 'UIKillerBindFilter',
     onCheckNode(node, target) {
