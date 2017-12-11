@@ -12,11 +12,10 @@ https://github.com/ShawnZhang2015/UILoader。
 
 ##2017.9.25
 1. 节点TOUCH_START事件返回false，可以穿透触摸，透过当前子节点
-2. 增加QRCode组件
 
-##2017.9.25
-1. 增加了一个ProgressBar组件，支持水平、垂直、扇形样式
-2. 增加了TouchStart事件返回false的演示范例
+##2017.12.11
+1. 移除通用组件模块，创建新的仓库[MagicComponent](https://github.com/ShawnZhang2015/MagicComponent)
+2. 使用Thor类使用uikiller，简化调用
 
 ## 关注**奎特尔星球**微信公众号，获取最新动态！
 
