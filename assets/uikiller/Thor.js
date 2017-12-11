@@ -21,7 +21,11 @@ let uikiller = require('./uikiller');
         if (this._bindHammer) {
             return;
         }
-        this._bindHammer = true;
+        
+        if (!CC_EDITOR) {
+            this._bindHammer = true;
+        }
+        
         uikiller.bindComponent(this);
     }
 
