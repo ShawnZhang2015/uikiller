@@ -1,14 +1,8 @@
-let uikiller = require('uikiller');
 
 cc.Class({
-    extends: cc.Component,
+    extends: Thor,
 
     properties: {
-    },
-
-    // use this for initialization
-    onLoad: function () {
-        uikiller.bindComponent(this);
     },
    
     random(max, min) {

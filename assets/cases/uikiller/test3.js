@@ -1,7 +1,7 @@
-let uikiller = require('uikiller');
+let Thor = require('Thor');
 
 cc.Class({
-    extends: cc.Component,
+    extends: Thor,
 
     properties: {
        
@@ -9,7 +9,6 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        uikiller.bindComponent(this);
         for(let i = 1; i <= 8; i++) {
             let name = '_image' + i;
             let node = this[name];

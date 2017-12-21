@@ -19,7 +19,6 @@ const UIKillerBindFilter = {
     }
 };
 
-
 const LANGUAGE_TABLE = {
     hello: '你好XXX',
     world: '世界',

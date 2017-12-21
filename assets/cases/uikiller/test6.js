@@ -1,6 +1,5 @@
-let uikiller = require('uikiller');
 cc.Class({
-    extends: cc.Component,
+    extends: Thor,
 
     properties: {
 
@@ -8,7 +7,6 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        uikiller.bindComponent(this); 
         this._button3.tag = 0;  
     },
 
@@ -21,9 +19,9 @@ cc.Class({
     },
 
     _onRandomTouchEnd() {
+        this._log.$Label.string = `你点击了随机, touchEnd返回值：${config[i]}`;
         let i = this._button3.tag++ % 3;
         let config = ['_attack', '_expedition', false];
-        this._log.$Label.string = `你点击了随机, touchEnd返回值：${config[i]}`;
         return config[i];   
     },
 
@@ -34,9 +32,4 @@ cc.Class({
 
     testButton() {
     }
-
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
 });

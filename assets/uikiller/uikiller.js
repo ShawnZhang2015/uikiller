@@ -48,6 +48,7 @@ const UIKiller = {
      */    
     bindComponent(component, options) {
         component.$options = options || {};
+    
         let root = component.node;
         root._components.forEach((nodeComponent) => {
             let name = this._getComponentName(nodeComponent);
@@ -77,15 +78,12 @@ const UIKiller = {
             }
             //更换绑定，删除之前绑定的节点
             delete target.$collector.node;
-
             //遍历收集器上的属性名，删除绑定属性
             Object.keys(target.$collector).forEach((key) => {
                 delete target[key];
             });
         }
         
-        
-
         //初始化收集器
         target.$collector = { node };
         //遍历根节点上的组件并绑定到target
@@ -142,7 +140,7 @@ const UIKiller = {
                 let name = this._getComponentName(component);
                 
                 name = `$${name}`;
-                if (node[name]) {
+                if (node[name] && target.$options.debug) {
                     cc.warn(`${name} property is already exists`);
                     return;
                 }
@@ -187,7 +185,7 @@ const UIKiller = {
                     }
                 }
 
-                if (target[name]) {
+                if (target[name] && target.$options.debug) {
                     cc.warn(`${target.name}.${name} property is already exists`);
                     return;
                 }
