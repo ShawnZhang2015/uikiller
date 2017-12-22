@@ -1,4 +1,4 @@
-//let uikiller = require('uikiller');
+
 let Thor = require('Thor');
 
 cc.Class({

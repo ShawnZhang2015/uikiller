@@ -11,7 +11,6 @@ let uikiller = require('./uikiller');
 
     properties:{
         _bindHammer: false,
-        editorBind: true,
         debug: false,
     },
 
