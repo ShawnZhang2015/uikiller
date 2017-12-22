@@ -45,7 +45,7 @@
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
     "groupIndex": 0,
-    "autoReleaseAssets": null
+    "autoReleaseAssets": false
   },
   {
     "__type__": "cc.Node",
@@ -57,16 +57,19 @@
     "_children": [
       {
         "__id__": 3
+      },
+      {
+        "__id__": 24
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 24
+        "__id__": 26
       },
       {
-        "__id__": 25
+        "__id__": 27
       }
     ],
     "_prefab": null,
@@ -162,7 +165,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0
+      "y": -153
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -324,8 +327,10 @@
       "__id__": 4
     },
     "_enabled": true,
-    "_isBound": null,
-    "_N$string": "cocos"
+    "_bindHammer": false,
+    "editorBind": true,
+    "debug": false,
+    "_N$string": "显示这个"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -491,7 +496,9 @@
       "__id__": 10
     },
     "_enabled": true,
-    "_isBound": true,
+    "_bindHammer": false,
+    "editorBind": true,
+    "debug": false,
     "_N$string": "654"
   },
   {
@@ -658,7 +665,9 @@
       "__id__": 16
     },
     "_enabled": true,
-    "_isBound": true,
+    "_bindHammer": false,
+    "editorBind": true,
+    "debug": false,
     "_N$string": ""
   },
   {
@@ -730,6 +739,80 @@
     "_N$horizontalDirection": 0
   },
   {
+    "__type__": "cc.Node",
+    "_name": "New Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 25
+      }
+    ],
+    "_prefab": null,
+    "_id": "f7e54JSy8hGapuHEZiAem92",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 848.96,
+      "height": 200
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 186
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 24
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_N$string": "prefab嵌套的Thor类属性访问:\n\n1. 外层Thor节点类不会遍历内层Thor节点\n2. 外层Thor类发现内层Thor节点是隐藏的会帮助\n进行绑定，因为隐藏节点组件代码不会执行",
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0
+  },
+  {
     "__type__": "cc.Canvas",
     "_name": "",
     "_objFlags": 0,
@@ -753,6 +836,8 @@
       "__id__": 2
     },
     "_enabled": true,
-    "_isBound": true
+    "_bindHammer": false,
+    "editorBind": true,
+    "debug": false
   }
 ]
