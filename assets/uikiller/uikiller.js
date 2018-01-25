@@ -262,8 +262,13 @@ const UIKiller = {
                 
                 //检查button组件是否有事件处理函数，有则执行插件事件处理
                 const button = eventNode.getComponent(cc.Button);
+                if (button && button.interactable === false) {
+                    return;
+                }
                 const eventFunc = target[eventName];
-                if (eventFunc || button.clickEvents.length) {
+                //是否有效事件
+                const isValidEvent = eventFunc || (button && button.clickEvents.length);
+                if (isValidEvent) {
                     this._beforeHandleEventByPlugins(eventNode, event, !!eventFunc);
                 }
                 
@@ -281,7 +286,7 @@ const UIKiller = {
                 }
 
                 //检查button组件是否有事件处理函数，有则执行插件事件处理
-                if (eventFunc || button.clickEvents.length) {
+                if (isValidEvent) {
                     this._afterHandleEventByPlugins(eventNode, event, !!eventFunc, eventResult);
                 }
             });

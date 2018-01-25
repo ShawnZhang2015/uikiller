@@ -15,6 +15,14 @@ cc.Class({
         cc.log(this._button.name);
         //在节点上使用“$组件名”访问组件
         cc.log(this._label.$Label.string);
+        //禁用按钮
+        if (!CC_EDITOR) {
+            this._disableBtn.$Button.interactable = false;
+        }
+    },
+
+    _onDisableBtnTouchEnd() {
+        cc.log('禁用按钮被点击了，不太可能吧！');
     },
 
 
