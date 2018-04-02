@@ -98,3 +98,7 @@ cc.createNodeComponent = function (componentType) {
     let component = node.addComponent(componentType);
     return component;
 };
+
+cc.Component.prototype.loadScene = function (sender, name, cb) {
+    cc.director.loadScene(name, cb);
+};
