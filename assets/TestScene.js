@@ -10,6 +10,7 @@ const SCENE_INFO = [
     '插件：音效控制',
     'TouchStart事件的秘密',
     '隐藏节点的绑定测试',
+    '节点缩放测试'
 ];
 
 cc.Class({
