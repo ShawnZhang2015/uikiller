@@ -37,17 +37,28 @@ let uikiller = require('./uikiller');
         if (!CC_EDITOR) {
             this._bindHammer = true;
         }
+
         //关联逻辑控制器
-        if (this.useController && this.controllerName) {
-            let Controller = require(this.controllerName);
-            this.$controller = new Controller();
-            uikiller.bindNode(this.node, this.$controller);
-        }
+        // if (this.useController && this.controllerName) {
+        //     let Controller = require(this.controllerName);
+        //     this.$controller = new Controller();
+        //     uikiller.bindNode(this.node, this.$controller);
+        // }
+        this.bindController();
 
         if (CC_DEBUG) {
             let duration = Date.now() - start;
             cc.log(`bindComponent ${this.node.name} duration ${duration}`);
         }
+    },
+
+    bindController() {
+         //关联逻辑控制器
+         if (this.useController && this.controllerName) {
+            let Controller = require(this.controllerName);
+            this.$controller = new Controller();
+            uikiller.bindNode(this.node, this.$controller);
+        }   
     }
 });
 
