@@ -9,12 +9,13 @@ let uikiller = require('./uikiller');
         executeInEditMode: true,
     },
 
-    properties:{
-        _bindHammer: false,
-        debug: false,
+    properties: {
+        useController: false,
+        controllerName: ''
     },
 
     __preload() {
+        this._bindHammer = false;
         this.bindHammer();
     },
 
@@ -28,14 +29,22 @@ let uikiller = require('./uikiller');
         if (this._bindHammer) {
             return;
         }
-        if (!CC_EDITOR) {
-            this._bindHammer = true;
-        }
+        
         let start = Date.now();
         let options = this.getOptions();
         
         uikiller.bindComponent(this, options);
-        if (this.debugInfo) {
+        if (!CC_EDITOR) {
+            this._bindHammer = true;
+        }
+        //关联逻辑控制器
+        if (this.useController && this.controllerName) {
+            let Controller = require(this.controllerName);
+            this.$controller = new Controller();
+            uikiller.bindNode(this.node, this.$controller);
+        }
+
+        if (CC_DEBUG) {
             let duration = Date.now() - start;
             cc.log(`bindComponent ${this.node.name} duration ${duration}`);
         }
