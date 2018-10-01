@@ -28,9 +28,8 @@ let uikiller = require('./uikiller');
         if (this._bindHammer) {
             return;
         }
-        if (!CC_EDITOR) {
-            this._bindHammer = true;
-        }
+        this._bindHammer = true;
+        
         let start = Date.now();
         let options = this.getOptions();
         
