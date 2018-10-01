@@ -29,21 +29,13 @@ let uikiller = require('./uikiller');
         if (this._bindHammer) {
             return;
         }
+        this._bindHammer = true;
         
         let start = Date.now();
         let options = this.getOptions();
-        
         uikiller.bindComponent(this, options);
-        if (!CC_EDITOR) {
-            this._bindHammer = true;
-        }
-
+       
         //关联逻辑控制器
-        // if (this.useController && this.controllerName) {
-        //     let Controller = require(this.controllerName);
-        //     this.$controller = new Controller();
-        //     uikiller.bindNode(this.node, this.$controller);
-        // }
         this.bindController();
 
         if (CC_DEBUG) {
