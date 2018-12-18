@@ -7,7 +7,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        this._button3.tag = 0;  
+        this._button3.tagIndex = 0;  
     },
 
     _onAttackTouchEnd() {
@@ -19,9 +19,10 @@ cc.Class({
     },
 
     _onRandomTouchEnd() {
-        this._log.$Label.string = `你点击了随机, touchEnd返回值：${config[i]}`;
-        let i = this._button3.tag++ % 3;
         let config = ['_attack', '_expedition', false];
+        let i = this._button3.tagIndex++ % 3;
+        this._log.$Label.string = `你点击了随机, touchEnd返回值：${config[i]}`;
+        
         return config[i];   
     },
 
