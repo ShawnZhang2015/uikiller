@@ -41,9 +41,9 @@ const UIKillerLabelLanguage = {
 };
 
 const SOUND_CONFIG = {
-    _attack: '3002.mp3',
-    _expedition: '3006.mp3', 
-    click: 'click.mp3',      
+    _attack: '3002',
+    _expedition: '3006', 
+    click: 'click',      
 }
 const UIKillerTouchSound = {
     name:'UIKillerTouchSound',
@@ -60,8 +60,12 @@ const UIKillerTouchSound = {
         }
         
         let soundName = SOUND_CONFIG[eventResult] || SOUND_CONFIG[node.name] || SOUND_CONFIG.click;
-        let url = cc.url.raw(`resources/sound/${soundName}`);
-        cc.audioEngine.play(url);
+        //let url = cc.url.raw(`resources/sound/${soundName}`);
+        //cc.audioEngine.play(url);
+        let url = `sound/${soundName}`;
+        cc.loader.loadRes(url, cc.AudioClip, (error, audioClip) => {
+            cc.audioEngine.play(audioClip);
+        });
     }
 };
 

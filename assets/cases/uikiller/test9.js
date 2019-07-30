@@ -16,7 +16,7 @@ cc.Class({
         let locations = touches.map(t => t.getLocation());
         if (locations.length === 2) {
             this._closeDrag = true;
-            this._firstPoint = cc.pMult(cc.pAdd(locations[0], locations[1]), 0.5);   
+            this._firstPoint = locations[0].add(locations[1]).mul(0.5);   
         }
         //采样10次    
         if (this._count++ < 10) {
@@ -26,7 +26,7 @@ cc.Class({
             this._onLayoutTouchDrag(sender, touches[0]);
         } else if (touches.length === 2) {
             
-            let distance = cc.pDistance(locations[0], locations[1]);
+            let distance = locations[0].sub(locations[1]).mag();
             if (!this._lastDistance) {
                 this._lastDistance = distance;
                 return;

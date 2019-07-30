@@ -39,13 +39,19 @@ cc.Class({
         }, 3);
     },
 
+    _onButtonTipsTouchStart() {
+        cc.log('_onButtonTipsTouchStart');
+    },
+
     _onButtonTipsTouchLong() {
+        cc.log('_onButtonTipsTouchLong');
         this._tipLabel.active = true;
         //注意返回true后，可继续触发_onButtonTipsTouchEnd
         return true;
     },
 
     _onButtonTipsTouchEnd() {
+        cc.log('_onButtonTipsTouchEnd');
         this._tipLabel.active = false;    
     },
 

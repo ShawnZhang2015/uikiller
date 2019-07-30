@@ -23,7 +23,7 @@ cc.Class({
         let rect = cc.rect(0, 0, this._stencil.width, this._stencil.height);
 
         //点中空洞，返回false,触摸事件继续派发
-        if (cc.rectContainsPoint(rect, pt)) {
+        if (rect.contains(pt)) {
             return false; 
         }
         this._log.$Label.string = `点击区域无效`;
