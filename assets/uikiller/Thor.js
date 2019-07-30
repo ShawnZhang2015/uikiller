@@ -10,12 +10,13 @@ let uikiller = require('./uikiller');
     },
 
     properties: {
-        useController: false,
-        controllerName: ''
+        
+        _controllerName: ''
     },
 
     __preload() {
         this._bindHammer = false;
+        this.useController = false;
         this.bindHammer();
     },
 
@@ -40,7 +41,7 @@ let uikiller = require('./uikiller');
 
         if (CC_DEBUG) {
             let duration = Date.now() - start;
-            cc.log(`bindComponent ${this.node.name} duration ${duration}`);
+            //cc.log(`bindComponent ${this.node.name} duration ${duration}`);
         }
     },
 
