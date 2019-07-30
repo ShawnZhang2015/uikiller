@@ -4,8 +4,8 @@ https://github.com/ShawnZhang2015/UILoader。
 
 我为uikiller写了一篇使用教程，请从下在连接获取，如果对你有所帮助，我会感到很开心！
 
-
 [奎特尔星球—雷神之锤](http://www.jianshu.com/p/174cc2160a7d)
+也可以关注我的公众上，上面有更多内容。
 
 ##2017.9.21
 增加了插件系统的演示
@@ -16,6 +16,9 @@ https://github.com/ShawnZhang2015/UILoader。
 ##2017.12.11
 1. 移除通用组件模块，创建新的仓库[MagicComponent](https://github.com/ShawnZhang2015/MagicComponent)
 2. 使用Thor类使用uikiller，简化调用
+
+##2019.7.20
+修改master分支默认支持 Cocos Creator 2.x 版本
 
 ## 关注**奎特尔星球**微信公众号，获取最新动态！
 
